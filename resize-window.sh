@@ -6,11 +6,14 @@ SCREEN1WIDTH=5120
 SCREEN1HEIGHT=1440
 SCREEN2WIDTH=1920  # Not used
 SCREEN2HEIGHT=1080
-MASTERPANELPERC=6
+MASTERPANELPERC=6 # expressed out of 10
 WIDTHDIFF=0
 HEIGHTDIFF=69
 BORDER=6
 G=0
+
+# set Xaxis=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
+# set Yaxis=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'y' -f1)
 
 # Calculate Master and Slave widths
 SLAVEPANELPERC=$((10-MASTERPANELPERC))
@@ -24,6 +27,7 @@ XMID=$((XLEFT+SLAVEWIDTH+BORDEROFFSET))
 XRIGHT=$((SCREEN1WIDTH-BORDEROFFSET-SLAVEWIDTH))
 Y=$((SCREEN2HEIGHT+BORDER))
 H=$((SCREEN1HEIGHT-HEIGHTDIFF-BORDEROFFSET))
+# echo x:$Xaxis y:$Yaxis
 
 # Print geometry
 echo Left x:$XLEFT y:$Y w:$SLAVEWIDTH h:$H
